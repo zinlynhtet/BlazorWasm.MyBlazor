@@ -3,7 +3,7 @@
 
 <h3>ToDoListPage</h3>
 
-<input type="text" class="form-control" @bind-value="reqModel.TaskName" required />
+<input type="text" class="form-control w-50" @bind-value="reqModel.TaskName" required />
 <button type="button" class="btn btn-dark" @onclick=Cancel>Cancel</button>
 <button type="button" class="btn btn-success" @onclick=Add>Add</button>
 @foreach (var item in data)
