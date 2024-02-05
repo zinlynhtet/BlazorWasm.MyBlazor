@@ -1,18 +1,19 @@
 ﻿@page "/"
 
-
-<h3>ToDoListPage</h3>
-
-<input type="text" class="form-control w-50" @bind-value="reqModel.TaskName" required />
-<button type="button" class="btn btn-dark" @onclick=Cancel>Cancel</button>
-<button type="button" class="btn btn-success" @onclick=Add>Add</button>
-@foreach (var item in data)
-{
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" @onclick="() => ToggleTask(item)" checked="@item.IsCompleted">
-        <label class="form-check-label">
-            @item.TaskName
-        </label>
-        <button type="button" class="btn btn-danger" @onclick="() => Remove(item.Id)">Remove</button>
+<div class="d-flex justify-content-center bg-light bg-opacity-25 shadow rounded-1 w-50 vh-100">
+    <div class="p-3">
+        <input type="text" placeholder="Your task here..." class="form-control w-full" @bind-value="reqModel.TaskName"/>
+        <button type="button" class="btn btn-dark mt-2" @onclick=Cancel>Cancel</button>
+        <button type="button" class="btn btn-success mt-2" @onclick=Add>Add</button>
+        @foreach (var item in data)
+        {
+            <div class="form-check mt-5">
+                <input type="checkbox" class="form-check-input" @onclick="() => ToggleTask(item)" checked="@item.IsCompleted">
+                <label class="form-check-label">
+                    @item.TaskName
+                </label>
+                <button type="button" class="btn btn-danger mx-5" @onclick="() => Remove(item.Id)">Remove</button>
+            </div>
+        }
     </div>
-}
+</div>
